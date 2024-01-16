@@ -71,3 +71,21 @@ module.exports.post_login = async (req, res) => {
         })
     }
 }
+
+module.exports.delete_user = async (req, res) => {
+    try {
+        const userId = req.params.userId;
+        const user = await User.findOneAndDelete({_id: userId})
+        .exec()
+        await user.save();
+        if (user) {
+            res.status(200).json()
+        }
+        
+    } catch (error) {
+        console.log(error)
+        res.status(500).json({
+            error: error.message
+        })
+    }
+}

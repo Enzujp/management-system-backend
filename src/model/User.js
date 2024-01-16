@@ -4,7 +4,7 @@ const { isEmail } = require("validator");
 const userSchema = mongoose.Schema({
     _id: mongoose.Schema.Types.ObjectId,
     
-    username: {
+    name: {
         type: String,
         unique: true,
         required: [ true, "Enter your username"],
@@ -46,10 +46,15 @@ const userSchema = mongoose.Schema({
         type: String,
         required: true
     },
+
+    endDate: {
+        type: String,
+        required: false
+    },
     
-    currentStatus :{
+    currentStatus: {
         type: Boolean,
-        default: false
+        default: true
     },
     
     fulltime: {
