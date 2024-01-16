@@ -7,6 +7,8 @@ const connectDB = require("./config/db");
 const PORT = process.env.PORT || 3000;
 
 const authRoutes = require("./src/routes/authRoutes");
+const timeSheetRoutes = require("./src/routes/timeSheetRoutes");
+const employeeRoutes = require("./src/routes/employeeRoutes");
 
 
 // Configs and Db initialization
@@ -21,6 +23,8 @@ app.use(express.json());
 
 // Routes to be used
 app.use("/user", authRoutes);
+app.use("/timesheet", timeSheetRoutes);
+app.use("/employees", employeeRoutes);
 
 
 // start server
