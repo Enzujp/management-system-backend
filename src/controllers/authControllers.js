@@ -21,6 +21,7 @@ try {
         const hashedPassword = await bcrypt.hash(password, 10);
         // create new user
         const user = new User({
+            _id: mongoose.Types.ObjectId(),
             username: username,
             email: email,
             password: hashedPassword
