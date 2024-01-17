@@ -1,8 +1,14 @@
 const mongoose = require("mongoose");
 
 const timeSheetSchema = new mongoose.Schema({
-    clockIn: Date,
-    clockOut: Date,
+    clockIn: {
+        type: Date,
+        status: Boolean
+    },
+    clockOut: {
+        type: Date,
+        status: Boolean
+    },
     status: {
         type: Boolean,
         default: false
